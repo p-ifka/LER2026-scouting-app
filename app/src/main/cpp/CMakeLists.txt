@@ -12,13 +12,17 @@ project("${APP_LIB_NAME}")
 add_subdirectory(${CMAKE_SOURCE_DIR}/deps/raylib)
 add_subdirectory(${CMAKE_SOURCE_DIR}/deps/raymob)
 
+
 # add source files
 list(APPEND SOURCES
+	    ${CMAKE_SOURCE_DIR}/deps/minIni/minIni.c
+	    
 	    ${CMAKE_SOURCE_DIR}/main.c
        	    ${CMAKE_SOURCE_DIR}/ui.c
+
 	    
 )
-include_directories(${CMAKE_SOURCE_DIR}/h/)
+
 
 include_directories(${ANDROID_NDK}/sources/android/native_app_glue/)
 list(APPEND SOURCES ${ANDROID_NDK}/sources/android/native_app_glue/android_native_app_glue.c)
@@ -38,6 +42,8 @@ endif()
 target_include_directories(${APP_LIB_NAME} PRIVATE "${CMAKE_SOURCE_DIR}/deps/raylib")
 target_include_directories(${APP_LIB_NAME} PRIVATE "${CMAKE_SOURCE_DIR}/deps/raymob")
 target_include_directories(${APP_LIB_NAME} PRIVATE "${CMAKE_SOURCE_DIR}/deps/raygui/src")
+target_include_directories(${APP_LIB_NAME} PRIVATE "${CMAKE_SOURCE_DIR}/deps/minIni/")
+target_include_directories(${APP_LIB_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/h/)
 
 # Link required libraries to the native application
 target_link_libraries(${APP_LIB_NAME} raylib raymoblib)
