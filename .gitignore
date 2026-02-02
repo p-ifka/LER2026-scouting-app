@@ -1,5 +1,9 @@
-#emacs temp files
+# emacs temp files
 *~
+
+Makefile
+
+
 
 # Gradle files
 .gradle/
